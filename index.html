@@ -8,7 +8,45 @@
 <meta property="og:title" content="Billel Zouak — Administrateur Systèmes & Réseaux">
 <meta property="og:description" content="Plus de 10 ans d'expérience en administration d'infrastructures Windows Server, Active Directory, sécurité réseau et supervision.">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://billel-zouak.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Billel Zouak",
+  "jobTitle": "Administrateur Systèmes et Réseaux",
+  "url": "https://billel-zouak.dev",
+  "email": "billelzouak35@gmail.com",
+  "telephone": "+213558253614",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Boumerdès",
+    "addressCountry": "DZ"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/billel-zouak-74892612a"
+  ],
+  "knowsAbout": [
+    "Windows Server",
+    "Active Directory",
+    "Fortigate",
+    "VMware",
+    "Hyper-V",
+    "Zabbix",
+    "Veeam",
+    "Networking"
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Administrateur Systèmes et Réseaux"
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Institut National Spécialisé"
+  }
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%236A4CFF'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EBZ%3C/text%3E%3C/svg%3E">
 <style>
 .icon-svg{width:1em; height:1em; display:inline-block; vertical-align:-0.14em; flex-shrink:0;}
@@ -106,6 +144,19 @@ html[data-theme="dark"] .theme-toggle .thumb .moon-icon{opacity:1; transform:rot
 *{margin:0; padding:0; box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Ubuntu', sans-serif; color:var(--text); background:var(--bg); overflow-x:hidden;}
+
+.skip-link{
+  position:absolute; top:-100%; left:16px; z-index:9999;
+  background:var(--accent); color:#fff; padding:12px 24px; border-radius:0 0 10px 10px;
+  font-weight:600; font-size:14px; transition:top .2s;
+}
+.skip-link:focus{top:0;}
+
+.reveal{opacity:0; transform:translateY(32px); transition:opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1);}
+.reveal.visible{opacity:1; transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1; transform:none; transition:none;}}
+
+@keyframes countUp{from{opacity:0; transform:scale(.7);} to{opacity:1; transform:scale(1);}}
 h1,h2,h3,h4{font-family:'Poppins', sans-serif;}
 a{text-decoration:none; color:inherit;}
 ul{list-style:none;}
@@ -348,6 +399,8 @@ footer span{color:var(--accent); font-weight:600;}
 </head>
 <body>
 
+<a href="#about" class="skip-link">Aller au contenu principal</a>
+
 <nav>
   <div class="nav-inner">
     <div class="logo"><span data-i18n="logo_name">Billel</span><span>.</span></div>
@@ -415,7 +468,7 @@ footer span{color:var(--accent); font-weight:600;}
   </div>
 </header>
 
-<section id="about">
+<section id="about" class="reveal">
   <div class="container">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="about_eyebrow">À propos de moi</div>
@@ -452,7 +505,7 @@ footer span{color:var(--accent); font-weight:600;}
   </div>
 </section>
 
-<section id="services" style="background:var(--white);">
+<section id="services" style="background:var(--white);" class="reveal">
   <div class="container">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="services_eyebrow">Ce que je fais</div>
@@ -505,7 +558,7 @@ footer span{color:var(--accent); font-weight:600;}
   </div>
 </section>
 
-<section id="portfolio">
+<section id="portfolio" class="reveal">
   <div class="container">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="portfolio_eyebrow">Réalisations</div>
@@ -585,7 +638,7 @@ footer span{color:var(--accent); font-weight:600;}
   </div>
 </section>
 
-<section id="experience" style="background:var(--white);">
+<section id="experience" style="background:var(--white);" class="reveal">
   <div class="container">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="nav_experience">Parcours</div>
@@ -618,7 +671,7 @@ footer span{color:var(--accent); font-weight:600;}
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
   <div class="container">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="contact_eyebrow">Parlons-en</div>
@@ -955,6 +1008,64 @@ footer span{color:var(--accent); font-weight:600;}
   const savedTheme = localStorage.getItem('bz-theme') ||
     (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   applyTheme(savedTheme);
+
+  // ---------- typing effect ----------
+  const roleEl = document.querySelector('.role span[data-i18n="role_short"]');
+  const roleTexts = {
+    fr: ["Administrateur Systèmes & Réseaux", "Expert Active Directory", "Spécialiste Fortigate", "Architecte VMware/Hyper-V"],
+    en: ["Systems & Network Administrator", "Active Directory Expert", "Fortigate Specialist", "VMware/Hyper-V Architect"],
+    ar: ["إداري أنظمة وشبكات", "خبير Active Directory", "متخصص Fortigate", "مهندس VMware/Hyper-V"]
+  };
+  let roleIdx = 0, charIdx = 0, isDeleting = false, roleTimer = null;
+  function typeRole() {
+    const lang = document.documentElement.getAttribute('lang') || 'fr';
+    const texts = roleTexts[lang] || roleTexts.fr;
+    const current = texts[roleIdx];
+    if (!isDeleting) {
+      roleEl.textContent = current.substring(0, charIdx + 1);
+      charIdx++;
+      if (charIdx === current.length) { isDeleting = true; roleTimer = setTimeout(typeRole, 2200); return; }
+      roleTimer = setTimeout(typeRole, 65);
+    } else {
+      roleEl.textContent = current.substring(0, charIdx - 1);
+      charIdx--;
+      if (charIdx === 0) { isDeleting = false; roleIdx = (roleIdx + 1) % texts.length; roleTimer = setTimeout(typeRole, 400); return; }
+      roleTimer = setTimeout(typeRole, 35);
+    }
+  }
+  if (window.matchMedia && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setTimeout(typeRole, 1200);
+  }
+
+  // ---------- scroll reveal ----------
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ---------- stats counter ----------
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const raw = el.textContent.replace(/[^0-9]/g, '');
+        const target = parseInt(raw, 10);
+        const suffix = el.textContent.replace(/[0-9]/g, '');
+        if (isNaN(target)) return;
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 40));
+        const counter = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(counter); }
+          el.textContent = current + suffix;
+        }, 30);
+        statObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-box .n').forEach(el => statObserver.observe(el));
 
 </script>
 
